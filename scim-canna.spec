@@ -8,7 +8,7 @@
 %define libname %mklibname %{name} 0
 
 Name:		scim-canna
-Summary:	Scim-canna is an SCIM IMEngine module for Canna
+Summary:	SCIM IMEngine module for Canna
 Version:	%{version}
 Release:	%{release}
 Group:		System/Internationalization
