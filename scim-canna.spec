@@ -1,5 +1,5 @@
 %define version	1.0.0
-%define release	%mkrel 2
+%define release	%mkrel 3
 
 %define scim_version	1.4.0
 %define canna_version	3.7p3
