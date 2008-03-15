@@ -1,5 +1,5 @@
-%define version	1.0.0
-%define release	%mkrel 3
+%define version	1.0.1
+%define release	%mkrel 1
 
 %define scim_version	1.4.0
 %define canna_version	3.7p3
@@ -12,13 +12,13 @@ Summary:	SCIM IMEngine module for Canna
 Version:	%{version}
 Release:	%{release}
 Group:		System/Internationalization
-License:	GPL
+License:	GPLv2+
 URL:		http://sourceforge.jp/projects/scim-imengine/
-Source0:	%{name}-%{version}.tar.bz2
+Source0:	http://osdn.dl.sourceforge.jp/scim-imengine/29155/%{name}-%{version}.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
-Requires:		%{libname} = %{version}
+Obsoletes:	%libname
 Requires:		canna >= %{canna_version}
-Requires:		scim >= %{scim_version}
+Requires:		scim-client = %{scim_api}
 BuildRequires:		canna >= %{canna_version}
 BuildRequires:		canna-devel >= %{canna_version}
 BuildRequires:		scim-devel >= 1.4.7-3mdk
@@ -27,15 +27,6 @@ BuildRequires:		automake, libltdl-devel
 %description
 Scim-canna is an SCIM IMEngine module for Canna.
 It supports Japanese input.
-
-
-%package -n	%{libname}
-Summary:	Scim-canna library
-Group:		System/Internationalization
-
-%description -n %{libname}
-scim-canna library.
-
 
 %prep
 %setup -q
@@ -58,17 +49,12 @@ rm -f %{buildroot}/%{scim_plugins_dir}/*/*.{a,la}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post -n %{libname} -p /sbin/ldconfig
-%postun -n %{libname} -p /sbin/ldconfig
-
+%post -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files -f %{name}.lang
 %defattr(-,root,root)
 %doc AUTHORS COPYING NEWS README
 %_datadir/scim/icons/scim-canna.png
-
-%files -n %{libname}
-%defattr(-,root,root)
-%doc COPYING
 %{scim_plugins_dir}/IMEngine/*.so
 %{scim_plugins_dir}/SetupUI/*.so
