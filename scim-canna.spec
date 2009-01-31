@@ -1,5 +1,5 @@
 %define version	1.0.1
-%define release	%mkrel 4
+%define release	%mkrel 5
 
 %define scim_version	1.4.0
 %define canna_version	3.7p3
@@ -15,6 +15,7 @@ Group:		System/Internationalization
 License:	GPLv2+
 URL:		http://sourceforge.jp/projects/scim-imengine/
 Source0:	http://osdn.dl.sourceforge.jp/scim-imengine/29155/%{name}-%{version}.tar.gz
+Patch0:		scim-canna-1.0.1-linkage.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 Obsoletes:	%libname
 Requires:		canna >= %{canna_version}
@@ -30,10 +31,9 @@ It supports Japanese input.
 
 %prep
 %setup -q
-cp /usr/share/automake-1.10/mkinstalldirs .
+%patch0 -p0
 
 %build
-[[ ! -x configure ]] && ./bootstrap
 %configure2_5x
 %make
 
