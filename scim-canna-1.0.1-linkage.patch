@@ -1,0 +1,45 @@
+--- src/Makefile.am~	2006-02-07 03:28:46.000000000 +0100
++++ src/Makefile.am	2009-01-31 14:34:03.000000000 +0100
+@@ -28,7 +28,8 @@
+ 	-avoid-version \
+ 	-rpath $(moduledir) \
+ 	-module \
+-	@LIBTOOL_EXPORT_OPTIONS@ \
++	@LIBTOOL_EXPORT_OPTIONS@
++canna_la_LIBADD = \
+ 	@SCIM_LIBS@ \
+ 	@CANNA_LIBS@
+ 
+@@ -48,7 +49,7 @@
+ canna_imengine_setup_la_LDFLAGS = -avoid-version \
+                                    -rpath $(setupmoduledir) \
+                                    -module \
+-                                   @LIBTOOL_EXPORT_OPTIONS@ \
+-                                   @SCIM_GTKUTILS_LIBS@ \
++                                   @LIBTOOL_EXPORT_OPTIONS@
++canna_imengine_setup_la_LIBADD  = @SCIM_GTKUTILS_LIBS@ \
+                                    @INTLLIBS@ \
+                                    @SCIM_LIBS@
+--- src/Makefile.in~	2008-01-29 03:51:16.000000000 +0100
++++ src/Makefile.in	2009-01-31 14:35:28.000000000 +0100
+@@ -288,7 +288,8 @@
+ 	-avoid-version \
+ 	-rpath $(moduledir) \
+ 	-module \
+-	@LIBTOOL_EXPORT_OPTIONS@ \
++	@LIBTOOL_EXPORT_OPTIONS@
++canna_la_LIBADD = \
+ 	@SCIM_LIBS@ \
+ 	@CANNA_LIBS@
+ 
+@@ -301,8 +302,8 @@
+ canna_imengine_setup_la_LDFLAGS = -avoid-version \
+                                    -rpath $(setupmoduledir) \
+                                    -module \
+-                                   @LIBTOOL_EXPORT_OPTIONS@ \
+-                                   @SCIM_GTKUTILS_LIBS@ \
++                                   @LIBTOOL_EXPORT_OPTIONS@
++canna_imengine_setup_la_LIBADD = @SCIM_GTKUTILS_LIBS@ \
+                                    @INTLLIBS@ \
+                                    @SCIM_LIBS@
+ 
