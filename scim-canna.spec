@@ -13,7 +13,7 @@ Version:	%{version}
 Release:	%{release}
 Group:		System/Internationalization
 License:	GPLv2+
-URL:		http://sourceforge.jp/projects/scim-imengine/
+URL:		https://sourceforge.jp/projects/scim-imengine/
 Source0:	http://osdn.dl.sourceforge.jp/scim-imengine/29155/%{name}-%{version}.tar.gz
 Patch0:		scim-canna-1.0.1-linkage.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
