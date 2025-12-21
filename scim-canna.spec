@@ -20,6 +20,9 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 Obsoletes:	%libname
 Requires:		canna >= %{canna_version}
 Requires:		scim-client = %{scim_api}
+BuildRequires:	autoconf
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
 BuildRequires:		canna >= %{canna_version}
 BuildRequires:		canna-devel >= %{canna_version}
 BuildRequires:		scim-devel >= 1.4.7-3mdk
